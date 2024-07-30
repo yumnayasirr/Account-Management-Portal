@@ -23,6 +23,7 @@ const userSchema = new mongoose.Schema({
     role: {         //role: admin or employee
         type: String,
         required: true,
+        default: 'employee',
     },
     //attributes specific to employee (  Requirement validation in backend )
     position: {
