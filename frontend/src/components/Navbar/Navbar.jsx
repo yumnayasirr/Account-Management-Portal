@@ -1,6 +1,5 @@
 import React from 'react'
 import '../Navbar/Navbar.css'
-import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
     const navigate = useNavigate();
@@ -8,9 +7,15 @@ const Navbar = () => {
   return (
     <div>
         <ul className="navbar">
-            <li className="nav-item" onClick={()=>navigate('')}>
-                
-            </li>
+            <a className="nav-item" href='../pages/login'>
+                 <li>Log out</li>
+            </a>
+            <a className="nav-item">
+                 <li></li>
+            </a>
+            <a className="nav-item">
+                 <li></li>
+            </a>
         </ul>
     </div>
   )

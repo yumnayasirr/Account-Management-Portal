@@ -1,0 +1,48 @@
+*{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+body{
+    background: linear-gradient(to right, burlywood, lightblue);
+}
+.login-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.login-form-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.login-left{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    gap: 5px;
+}
+
+.form-entry{
+    display: flex;
+    justify-content: center;
+}
+
+.login-center{
+    width: 30px;
+    height: 20px;
+    background-color: burlywood;
+}
+
+
