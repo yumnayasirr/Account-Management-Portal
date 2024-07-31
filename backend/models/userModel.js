@@ -1,12 +1,11 @@
 const mongoose = require('mongoose');
-const autoIncrement = require('mongoose-sequence')(mongoose);
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 // Single database collection for employee and admin
 const userSchema = new mongoose.Schema({
     //mutual attributes between employee and admin
     userID:{
         type: Number,
-        required: true,
     },
     name: {
         type: String,
