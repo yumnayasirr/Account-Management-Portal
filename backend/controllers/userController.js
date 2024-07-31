@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 
 // Register User
 const registerUser = asyncHandler(async (req, res) => {
+
     const { name, email, password, role, position, salary, department, phone } = req.body;
 
     // Validate input fields
