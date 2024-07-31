@@ -30,7 +30,7 @@ const Login = () => {
       <div className="login-form-container">
         <div className="login-left">
           <h2 className="title">Login to your account!</h2>
-          <form className='login-form' onSubmit={formik.handleSubmit}>
+          <form className='login-form' onSubmit={formik.handleSubmit}> 
             <div className="form-entry">
               <label htmlFor="email">Email</label>
               <input
