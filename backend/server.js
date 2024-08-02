@@ -16,10 +16,18 @@ const port = process.env.PORT || 5000;
 // Routes
 app.use('/api/user', require('./routes/userRoutes'));
 
+
+app.use(express.json()); // To parse JSON bodies
+app.use(express.urlencoded({ extended: true })); // To parse URL-encoded bodies
+
+
 // Error handling middleware (uncomment if you have an error handler)
 // app.use(errorHandler);
 
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`.green);
 });
+
+console.log(process.env.CONNECTION_STRING);
+
 

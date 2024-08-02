@@ -69,6 +69,28 @@ const loginUser = asyncHandler(async (req, res) => {
     }
 });
 
+updateEmployee = asyncHandler(async (req, res) => {
+    const { userID } = req.params;
+    console.log(userID);
+  
+    // Find the user by userID
+    const user = await User.findOne({ userID });
+    console.log(user)
+    if (!user) {
+      res.status(404);
+      throw new Error("Employee not found");
+    }
+  
+    // Update the user and return the updated data
+    const updatedEmployeeInfo = await User.findOneAndUpdate(
+      { userID },
+      req.body,
+      { new: true }
+    );
+  
+    res.status(200).json(updatedEmployeeInfo);
+  });
+  
 // Generate Token
 const generateToken = async (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -76,4 +98,4 @@ const generateToken = async (id) => {
     });
 };
 
-module.exports = { registerUser, loginUser };
+module.exports = { registerUser, loginUser, updateEmployee };

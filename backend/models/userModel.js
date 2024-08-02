@@ -1,48 +1,50 @@
-const mongoose = require('mongoose');
-const AutoIncrement = require('mongoose-sequence')(mongoose);
+const mongoose = require("mongoose");
+const AutoIncrement = require("mongoose-sequence")(mongoose);
 
 // Single database collection for employee and admin
-const userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema(
+  {
     //mutual attributes between employee and admin
-    userID:{
-        type: Number,
+    userID: {
+      type: Number
     },
     name: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     email: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     password: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
-    role: {         //role: admin or employee
-        type: String,
-        required: true,
-        default: 'employee',
+    role: {
+      //role: admin or employee
+      type: String,
+      required: true,
+      default: "employee",
     },
     //attributes specific to employee (  Requirement validation in backend )
     position: {
-        type: String,
+      type: String,
     },
     salary: {
-        type: Number,
+      type: Number,
     },
     department: {
-        type: String,
+      type: String,
     },
-    phone:{
-        type:Number,
+    phone: {
+      type: Number,
     },
-}, 
-{timestamps: true});
+  },
+  { timestamps: true }
+);
 
 // Adding auto-incrementing userID field
-userSchema.plugin(AutoIncrement, {inc_field: 'userID'});
+userSchema.plugin(AutoIncrement, { inc_field: "userID" });
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 module.exports = User;
-
