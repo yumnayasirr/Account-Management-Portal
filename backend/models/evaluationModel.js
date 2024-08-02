@@ -2,17 +2,21 @@ const mongoose = require('mongoose');
 
 const evaluationSchema = new mongoose.Schema({
 
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
+    userID: {
+        type: Number,
         required: true,
-        ref: 'User'
+        unique: true
     },
-    evaluation: {
+    TechnicalEval: {
         type: String,
         required: true
     },
-    evaluationTime: {
+    ClientEval: {
         type: String,
+        required: true
+    },
+    evaluationDate: {
+        type: Date,
         required: true
     },
 }, 

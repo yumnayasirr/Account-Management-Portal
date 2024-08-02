@@ -6,6 +6,7 @@ const userSchema = new mongoose.Schema({
     //mutual attributes between employee and admin
     userID:{
         type: Number,
+        unique: true
     },
     name: {
         type: String,
