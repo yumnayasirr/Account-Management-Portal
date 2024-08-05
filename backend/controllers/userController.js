@@ -89,4 +89,10 @@ const getUsers = asyncHandler(async(req, res)=>{
     res.status(200).json(users);
 });
 
-module.exports = { registerUser, loginUser, getUsers };
+//Get all employees
+const getEmployees = asyncHandler(async(req, res)=>{
+    const employees = await User.find({role: 'employee'})
+    res.status(200).json(employees);
+});
+
+module.exports = { registerUser, loginUser, getUsers, getEmployees };
