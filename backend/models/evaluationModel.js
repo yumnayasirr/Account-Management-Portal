@@ -17,7 +17,7 @@ const evaluationSchema = new mongoose.Schema({
     },
     evaluationDate: {
         type: Date,
-        required: true
+        // required: true
     },
 }, 
 {timestamps: true});

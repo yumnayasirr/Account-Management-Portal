@@ -16,7 +16,7 @@ const port = process.env.PORT || 5000;
 
 // Routes
 app.use('/api/user', require('./routes/userRoutes'));
-app.use('/api/evaluation', require('./routes/evalRoutes'));
+app.use('/api/evaluations', require('./routes/evalRoutes'));
 
 // Error handling middleware
 app.use(errorHandler);

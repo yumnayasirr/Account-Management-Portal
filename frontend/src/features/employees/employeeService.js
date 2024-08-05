@@ -1,12 +1,10 @@
 import axios from 'axios';
 
-const API_URI = '/api/user/';
-
 //Get all employees (admin only)
 const fetchEmployees = async () => {
   try {
 
-    const response = await axios.get(API_URI + 'employees');	
+    const response = await axios.get('/api/user/employees');	
    // console.log('Response from fetchEmployees:', response.data);
     return response.data;
   } catch (error) {
@@ -17,7 +15,7 @@ const fetchEmployees = async () => {
 //Get Employee Evaluations
 const fetchEvaluations = async () => {
   try {
-    const response = await axios.get(API_URI);
+    const response = await axios.get('/api/evaluations/');
     return response.data;
   } catch (error) {
     console.error('Error fetching evaluations:', error);
