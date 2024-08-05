@@ -95,4 +95,27 @@ const getEmployees = asyncHandler(async(req, res)=>{
     res.status(200).json(employees);
 });
 
-module.exports = { registerUser, loginUser, getUsers, getEmployees };
+//Update Employee details
+updateEmployee = asyncHandler(async (req, res) => {
+    const { userID } = req.params;
+    console.log(userID);
+  
+    // Find the user by userID
+    const user = await User.findOne({ userID });
+    console.log(user)
+    if (!user) {
+      res.status(404);
+      throw new Error("Employee not found");
+    }
+  
+    // Update the user and return the updated data
+    const updatedEmployeeInfo = await User.findOneAndUpdate(
+      { userID },
+      req.body,
+      { new: true }
+    );
+  
+    res.status(200).json(updatedEmployeeInfo);
+  });
+
+module.exports = { registerUser, loginUser, getUsers, getEmployees, updateEmployee };

@@ -5,8 +5,12 @@ const express = require('express');
 const router = express.Router();
 
 // Admin only routes
-router.get('/',authenticateAdmin, getEvaluations);
-router.post('/',authenticateAdmin, createEvaluation);
+//router.get('/',authenticateAdmin, getEvaluations);
+//router.post('/',authenticateAdmin, createEvaluation);
+
+router.get('/', getEvaluations);
+router.post('/',createEvaluation);
+
 router.delete('/',authenticateAdmin, deleteEvaluation);
 
 // Public routes
