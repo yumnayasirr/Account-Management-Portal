@@ -120,5 +120,9 @@ body{
     color: #15272E;
     border: 1px solid #E6F5D9;
     border-radius: 10px;
+}
 
+.emp-list li{
+  cursor: pointer;
+  list-style-type: none;
 }

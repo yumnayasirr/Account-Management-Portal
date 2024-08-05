@@ -7,10 +7,14 @@ const getEvaluations = asyncHandler(async (req, res) => {
     res.status(200).json(evaluations);
 });
 
-
 // Get Evaluation By ID
 const getEvaluationById = asyncHandler(async (req, res) =>{
     const evaluation = await Evaluation.findById(req.params.id);
+
+    if (!evaluation) {
+        return res.status(404).json({ message: 'Evaluation not found' });
+    }
+    
     res.status(200).json(evaluation);
 });
 
