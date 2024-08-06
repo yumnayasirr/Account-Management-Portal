@@ -24,6 +24,11 @@ const EmpEvaluation = () => {
         getEvaluations();
     }, []);
 
+    const onclick = (evalID, event) => {
+        event.preventDefault();
+        console.log('Evaluation Clicked: ' + evalID );
+    }
+
   return (
     <div className='emp-evaluation'>
         <h1 className="title">Evaluation Record</h1>
