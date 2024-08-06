@@ -126,3 +126,47 @@ body{
   cursor: pointer;
   list-style-type: none;
 }
+
+
+/* Dashboard */
+
+.dashboard-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #E6F5D9;
+  color: #15272E;
+  border: 1px solid #E6F5D9;
+  width: 100vw;
+  height: 100vh;
+}
+
+.dashboard-element-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 80px;
+  margin-top: 50px;
+}
+
+.dashboard-element{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #15272E;
+  color: #E6F5D9;
+  border: 2px solid #15272E;
+  border-radius: 10px;
+  padding: 30px;
+  transition: 0.3s;
+}
+
+.dashboard-element:hover{
+  background-color: #E6F5D9;
+  color: #15272E;
+  transform: scale(1.1);
+  transition: 0.3s;
+  cursor: pointer;
+}
