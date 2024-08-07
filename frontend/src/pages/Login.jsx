@@ -1,10 +1,17 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useSelector, useDispatch } from 'react-redux';
+import { setUserEmail } from '../features/Auth/authSlice';
+import {useNavigate} from 'react-router-dom'
 
 const Login = () => {
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const formik = useFormik({
+
     initialValues: {
       email: '',
       password: '',
@@ -20,7 +27,8 @@ const Login = () => {
         .required('Required'),
     }),
     onSubmit: values => {
-      console.log(values);
+      dispatch(setUserEmail(values?.email));
+      navigate('/empDashboard');
     },
   });
 
