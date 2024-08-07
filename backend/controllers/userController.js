@@ -96,7 +96,7 @@ const getEmployees = asyncHandler(async(req, res)=>{
 });
 
 //Update Employee details
-updateEmployee = asyncHandler(async (req, res) => {
+const updateEmployee = asyncHandler(async (req, res) => {
     const { userID } = req.params;
     console.log(userID);
   
@@ -118,4 +118,29 @@ updateEmployee = asyncHandler(async (req, res) => {
     res.status(200).json(updatedEmployeeInfo);
   });
 
-module.exports = { registerUser, loginUser, getUsers, getEmployees, updateEmployee };
+
+//Get Employee Information
+const getEmployeeInfo = asyncHandler(async (req, res) => {
+    try {
+        const { email } = req.query;
+
+        if (!email) {
+            return res.status(400).json({ message: 'Email is required' });
+        }
+
+        const employee = await User.findOne({ email });
+
+        if (!employee) {
+            return res.status(404).json({ message: 'Employee not found' });
+        }
+
+        const { name, role, position, salary, department, phone } = employee;
+
+        res.status(200).json({ name, email, role, position, salary, department, phone });
+    } catch (error) {
+        console.log('Error fetching account info from database:', error);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+module.exports = { registerUser, loginUser, getUsers, getEmployees, updateEmployee, getEmployeeInfo };

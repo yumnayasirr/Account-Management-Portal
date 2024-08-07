@@ -8,21 +8,26 @@ import EmpDashboard from './pages/employee/EmpDashboard';
 import EmpList from './pages/admin/EmpList';
 import EmpEvaluation from './pages/EmpEvaluation';
 import LandingPage from './pages/LandingPage';
-
+import { Provider } from 'react-redux';
+import { store } from './app/store.js';
+import Account from './pages/employee/Account';
 
 const App = () => {
   return (
-    <Router>
+    <Provider store={store}>
+      <Router>
       <Routes>
-        <Route path="/" element={<LandingPage/>} />
-        {/* <Route path="/" element={<Login />} /> */}
+        {/* <Route path="/" element={<LandingPage/>} /> */}
+        <Route path="/" element={<Login />} />
         {/* <Route path="/" element={<EmpList />} /> */}
         <Route path="/empEvaluation" element={<EmpEvaluation />} />
         <Route path="/adminDashboard" element={<AdminDashboard />} />
         <Route path="/empDashboard" element={<EmpDashboard />} />
+        <Route path="/account" element={<Account/>} />
       </Routes>
       <ToastContainer />
-    </Router>
+    </Router>  
+    </Provider>
   )
 }
 
